@@ -17,3 +17,6 @@ while True:
         flow_frequency = 0                       # Reset Counter
         lastcallTime=time.ticks_ms()
         print("Flow Rate={} Litres/Hour".format(flow_rate))   #print(flow_rate)
+        #
+        z=str(flow_rate)
+        print(z)#

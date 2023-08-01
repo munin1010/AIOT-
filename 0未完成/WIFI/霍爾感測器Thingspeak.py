@@ -4,9 +4,9 @@ while True:
         flow_frequency = 0                       # Reset Counter
         lastcallTime=time.ticks_ms()
         x=("Flow Rate={} Litres/Hour".format(flow_rate))   #print(flow_rate)
-        y=str(flow_rate)
-        print(y)
-    sendCMD_waitResp('TP1+'+y)
+        z=str(flow_rate)
+        print(z)
+    sendCMD_waitResp('TP3+'+z)
     utime.sleep(0.1)
     sendCMD_waitResp('TX_EN')
     utime.sleep(0.1)
