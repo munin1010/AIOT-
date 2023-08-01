@@ -35,7 +35,7 @@ sendCMD_waitResp("PSWD+0966331739") #PSWD密碼
 utime.sleep(0.1)
 sendCMD_waitResp("CHID+1000000")
 utime.sleep(0.1)
-sendCMD_waitResp("APIKEY+LSG7G23E3TLUK6C0") #
+sendCMD_waitResp("APIKEY+6VZ04865VFS5KI0E") #
 utime.sleep(0.1)
 sendCMD_waitResp("ready")
 utime.sleep(0.1)
@@ -60,4 +60,4 @@ while True :
     utime.sleep(0.1)
     sendCMD_waitResp('TX_EN')
     utime.sleep(0.1)
-    utime.sleep(20)
+    utime.sleep(2)
