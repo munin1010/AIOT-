@@ -20,9 +20,9 @@ def loop():
             sensor['flow_rate']=new_flow_rate
         sensor['water_level']=round(read_water_level(),2)
         
-        print("Pressure = {} hpa, Flow Rate = {} Litres/Hour, Water height = {} %".
-              format(sensor['pressure'],sensor['flow_rate'],sensor['water_level']))   #print(flow_rate)
-        
+        print("Pressure = {} hpa".format(sensor['pressure']))   #print(flow_rate)
+        print("Flow Rate = {} Litres/Hour".format(sensor['flow_rate']))
+        print("Water height = {} %".format(sensor['water_level']))
         time.sleep(0.5)
         
 
