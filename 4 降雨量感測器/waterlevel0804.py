@@ -11,15 +11,15 @@ def init_water_level_sensor():
 def read_water_level():
     #Calibraton values
     reading = (max_waterheight-adc0.read_u16())*100/(max_waterheight-min_waterheight)
-    reading2=str(adc0.read_u16())
-    return reading,reading2
+    
+    return reading
 
 def main():
     init_water_level_sensor()
     while True:
-        reading,reading2=read_water_level()
+        reading=read_water_level()
         utime.sleep(0.5)
-        print("water: " + "%.2f" % reading +"% (adc: "+reading2+")")
+        print("water: " + "%.2f" % reading +"%")
 
 if __name__ == '__main__':
     main()  
