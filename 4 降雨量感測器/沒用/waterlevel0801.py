@@ -14,7 +14,11 @@ while True:
 # read moisture value and convert to percentage into the calibration range
     #
     waterlevel = (max_waterheight-water.read_u16())*100/(max_waterheight-min_waterheight)
-    x=str(waterlevel)
+   # x=str(waterlevel)
     #
-    utime.sleep(readDelay)
     print("water: " + "%.2f" % waterlevel +"% (adc: "+str(water.read_u16())+")")
+    utime.sleep(readDelay)
+   
+    
+    
+    
