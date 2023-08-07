@@ -29,13 +29,13 @@ def waitResp(uart=uart, timeout=1000):
             wifi_ready=1
 sendCMD_waitResp("RESET")
 utime.sleep(0.5)
-sendCMD_waitResp("SSID+iP14max")  #SSID帳號
+sendCMD_waitResp("SSID+AndroidHuang")  #SSID帳號
 utime.sleep(0.1)
-sendCMD_waitResp("PSWD+0966331739") #PSWD密碼
+sendCMD_waitResp("PSWD+0987437180") #PSWD密碼
 utime.sleep(0.1)
 sendCMD_waitResp("CHID+1000000")
 utime.sleep(0.1)
-sendCMD_waitResp("APIKEY+UF0GK13P87HPBOGK") #
+sendCMD_waitResp("APIKEY+3ZVJK8QWCNL6E0AJ") #
 utime.sleep(0.1)
 sendCMD_waitResp("ready")
 utime.sleep(0.1)
@@ -54,10 +54,10 @@ while True :
     a+=1
     x=str(a)
     y=str(a+5)
+    utime.sleep(0.1)
     sendCMD_waitResp('TP1+'+x)
     utime.sleep(0.1)
     sendCMD_waitResp('TP2+'+y)
     utime.sleep(0.1)
     sendCMD_waitResp('TX_EN')
-    utime.sleep(0.1)
-    utime.sleep(2)
+    utime.sleep(20)
