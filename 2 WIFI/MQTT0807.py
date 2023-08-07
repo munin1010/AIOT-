@@ -65,16 +65,15 @@ class ESP01_MQTT:
         utime.sleep(1)
 
     def publish_data(self, value1, value2, value3):
-        while True:
-            self.wait_resp()
-            y1 = str(value1)
-            y2 = str(value2)
-            y3 = str(value3)
-            self.send_cmd_wait_resp(f'PB1+{y1}')
-            self.send_cmd_wait_resp(f'PB2+{y2}')
-            self.send_cmd_wait_resp(f'PB3+{y3}')
-            self.count = value1  # You can choose which value to use for count or omit this line
-            utime.sleep(1)
+        self.wait_resp()
+        y1 = str(value1)
+        y2 = str(value2)
+        y3 = str(value3)
+        self.send_cmd_wait_resp(f'PB1+{y1}')
+        self.send_cmd_wait_resp(f'PB2+{y2}')
+        self.send_cmd_wait_resp(f'PB3+{y3}')
+        self.count = value1  # You can choose which value to use for count or omit this line
+            
 
 # Usage example:
 if __name__ == '__main__':
@@ -93,4 +92,8 @@ if __name__ == '__main__':
     value1_to_send = "氣壓"
     value2_to_send = "水高"
     value3_to_send = "水流"
-    esp01_mqtt.publish_data(value1_to_send, value2_to_send, value3_to_send)
+    while True:
+        print('Loop MQTT2.py')
+        esp01_mqtt.publish_data(value1_to_send, value2_to_send, value3_to_send)
+        utime.sleep(1)
+        
