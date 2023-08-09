@@ -45,9 +45,9 @@ def loop():
 
         
         time.sleep(0.5)
-        value1_to_send = str(x)
-        value2_to_send = str(y)
-        value3_to_send = str(z)
+        value1_to_send = x
+        value2_to_send = y
+        value3_to_send = z
         global esp01_mqtt
         esp01_mqtt.publish_data(value1_to_send, value2_to_send, value3_to_send)
         time.sleep(1)
