@@ -73,17 +73,22 @@ class ESP01_MQTT:
         y1 = str(value1)
         y2 = str(value2)
         y3 = str(value3)
-        self.send_cmd_wait_resp(f'TP1+{y1}' )
-        self.send_cmd_wait_resp(f'TP2+{y2}' )
-        self.send_cmd_wait_resp(f'TP3+{y3}' )
+        
+        
+        self.send_cmd_wait_resp(f'PB1+ Pressure ={y1} hpa')
+        self.send_cmd_wait_resp(f'PB2+ Flow Rate = {y2} Litres/Hour')
+        self.send_cmd_wait_resp(f'PB3+ Water height = {y3} %')
+        self.count = value1  # You can choose which value to use for count or omit this line
+        
+        self.send_cmd_wait_resp(f'TP1+ {y1}' )
+        utime.sleep(0.1)
+        self.send_cmd_wait_resp('TP2+ {y2}' )
+        utime.sleep(0.1)
+        self.send_cmd_wait_resp('TP3+ {y3}' )
         utime.sleep(0.1)
         self.send_cmd_wait_resp('TX_EN')
         utime.sleep(0.1)
-        self.send_cmd_wait_resp(f'PB1+{y1}')
-        self.send_cmd_wait_resp(f'PB2+{y2}')
-        self.send_cmd_wait_resp(f'PB3+{y3}')
-        self.count = value1  # You can choose which value to use for count or omit this line
-
+        utime.sleep(20)
 
 # Usage example:
 if __name__ == '__main__':
