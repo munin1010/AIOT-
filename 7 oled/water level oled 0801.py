@@ -1,4 +1,5 @@
 from ssd1306 import SSD1306_I2C
+from machine import Pin,I2C,UART,ADC
 import utime
 
 WIDTH  = 128                                            # oled display width
