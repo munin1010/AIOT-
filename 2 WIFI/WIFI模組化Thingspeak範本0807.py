@@ -74,7 +74,5 @@ if __name__ == "__main__":
 
     
     while True:
-        print("Flow Rate={} Litres/Hour".format(flow_rate))
-        print("pressure = {} hpa".format(pressure)) 
-        print("water: " + "%.2f" % reading +"%")
-        wifi_module.send_data(flow_rate , pressure , "%.2f" % reading)
+        
+        wifi_module.send_data(x ,y , z)
