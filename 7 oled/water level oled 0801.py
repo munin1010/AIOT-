@@ -13,7 +13,7 @@ oled = SSD1306_I2C(WIDTH, HEIGHT, i2c)                  # Init oled display
 
 
 while True:
-    oled.fill(0)4
+    oled.fill(0)
     
     oled.text("Water height",10,15)
     oled.text(str("%.2f" % waterlevel)+" %",35,35)
