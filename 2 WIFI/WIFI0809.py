@@ -82,9 +82,9 @@ class ESP01_MQTT:
         
         self.send_cmd_wait_resp(f'TP1+ {y1}' )
         utime.sleep(0.1)
-        self.send_cmd_wait_resp('TP2+ {y2}' )
+        self.send_cmd_wait_resp(f'TP2+ {y2}' )
         utime.sleep(0.1)
-        self.send_cmd_wait_resp('TP3+ {y3}' )
+        self.send_cmd_wait_resp(f'TP3+ {y3}' )
         utime.sleep(0.1)
         self.send_cmd_wait_resp('TX_EN')
         utime.sleep(0.1)
