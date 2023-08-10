@@ -32,7 +32,7 @@ class ESP01_MQTT:
                 print('Ready')
                 self.wifi_ready = 1
 
-    def setup(self, ssid, password, mqtt_server, topic_sub, topic_pub1,topic_pub2,topic_pub3, ready):
+    def setup(self, ssid, password, mqtt_server, topic_sub, topic_pub1,topic_pub2,topic_pub3,topic_pub4,topic_sub1,topic_sub2,topic_sub3,topic_sub4 ,ready):
         reset = 'RESET'
         self.send_cmd_wait_resp(reset)
         utime.sleep(0.5)
@@ -50,6 +50,17 @@ class ESP01_MQTT:
         utime.sleep(0.01)
         self.send_cmd_wait_resp(topic_pub3)
         utime.sleep(0.01)
+        self.send_cmd_wait_resp(topic_pub4)
+        utime.sleep(0.01)
+        self.send_cmd_wait_resp(topic_sub1)
+        utime.sleep(0.01)
+        self.send_cmd_wait_resp(topic_sub2)
+        utime.sleep(0.01)
+        self.send_cmd_wait_resp(topic_sub3)
+        utime.sleep(0.01)
+        #開關用
+        self.send_cmd_wait_resp(topic_sub4)
+        utime.sleep(0.01)
         self.send_cmd_wait_resp(ready)
 
         while not self.wifi_ready:
@@ -64,14 +75,16 @@ class ESP01_MQTT:
         print('Start')
         utime.sleep(1)
 
-    def publish_data(self, value1, value2, value3):
+    def publish_data(self, value1, value2, value3, value4):
         self.wait_resp()
         y1 = str(value1)
         y2 = str(value2)
         y3 = str(value3)
+        y4 = str(value4)
         self.send_cmd_wait_resp(f'PB1+{y1}')
         self.send_cmd_wait_resp(f'PB2+{y2}')
         self.send_cmd_wait_resp(f'PB3+{y3}')
+        self.send_cmd_wait_resp(f'PB4+{y4}')
         self.count = value1  # You can choose which value to use for count or omit this line
             
 
@@ -79,21 +92,27 @@ class ESP01_MQTT:
 if __name__ == '__main__':
     esp01_mqtt = ESP01_MQTT(tx_pin=8, rx_pin=9)
     esp01_mqtt.setup(
-        ssid='SSID+iP14max',
-        password='PSWD+0966331739',
+        ssid='SSID+AndroidHuang',
+        password='PSWD+0987437180',
         mqtt_server='BROKER+mqttgo.io',
         topic_sub='TOPIC+MQTT/111/11',
         topic_pub1='TOPIC1+MQTT/2222/2222',
         topic_pub2='TOPIC2+MQTT/3333/3333',
         topic_pub3='TOPIC3+MQTT/4444/4444',
+        topic_pub4='TOPIC3+MQTT/5555/5555',
+        topic_sub1='TOPIC1+MQTT/6666/6666',
+        topic_sub2='TOPIC2+MQTT/7777/7777',
+        topic_sub3='TOPIC3+MQTT/8888/8888',
+        topic_sub4='TOPIC3+MQTT/9999/9999',
         ready='ready'
     )
 
     value1_to_send = "氣壓"
     value2_to_send = "水高"
     value3_to_send = "水流"
+    value3_to_send = "水流"
     while True:
         print('Loop MQTT2.py')
-        esp01_mqtt.publish_data(value1_to_send, value2_to_send, value3_to_send)
+        esp01_mqtt.publish_data(value1_to_send, value2_to_send, value3_to_send, value3_to_send)
         utime.sleep(1)
         

@@ -13,7 +13,7 @@ f=Font(oled)
 pwm = PWM(Pin(7,Pin.OUT))
 pwm.duty_u16(32000)
 
-# OLED 顯示的執行緒
+# OLED 顯示的二核心同時警告
 def oled_thread():
     for a in range(5):
     
@@ -31,7 +31,7 @@ def oled_thread():
         time.sleep(0.5)
 _thread.start_new_thread(oled_thread,())
 
-
+#buzzer 迴圈
 
 for a in range(15):
     print(a)
