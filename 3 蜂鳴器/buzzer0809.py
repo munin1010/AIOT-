@@ -4,7 +4,7 @@ from machine import I2C,UART,ADC
 from ssd1306 import SSD1306_I2C
 
 #buzzer
-pwm = PWM(Pin(7,Pin.OUT))
+pwm = PWM(Pin(7,Pin.IN))
 pwm.duty_u16(32000)
 for t in range(5):
     print(t)
