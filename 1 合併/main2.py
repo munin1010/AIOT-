@@ -69,7 +69,7 @@ while True:
                 #print(freq)
                 pwm.freq(freq)
                 sleep(0.01)
-                pwm.duty_u16(65535)
+            pwm.duty_u16(65535)
         print(t)
     elif x2>0 and x3>0:
         _thread.start_new_thread(oled_thread,())
@@ -80,7 +80,7 @@ while True:
                 #print(freq)
                 pwm.freq(freq)
                 sleep(0.01)
-                pwm.duty_u16(65535)
+            pwm.duty_u16(65535)
         print(t)
 
         
