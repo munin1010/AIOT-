@@ -34,15 +34,15 @@ def oled_thread():
             oled.invert(False)
             time.sleep(0.5)
 def buzzer():
-    for t in range(5):
-        pwm = PWM(Pin(7,Pin.OUT))
-        pwm.duty_u16(32000)
-    
-        for freq in range(500,1000,20):
-            pwm.freq(freq)
-            sleep(0.01)
-        pwm.duty_u16(65535)
-     print(t)
+        for t in range(5):
+            pwm = PWM(Pin(7,Pin.OUT))
+            pwm.duty_u16(32000)
+            for freq in range(500,1000,20):
+                #print(freq)
+                pwm.freq(freq)
+                sleep(0.01)
+            pwm.duty_u16(65535)
+        print(t)
 
 
 
