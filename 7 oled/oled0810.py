@@ -1,5 +1,5 @@
 oled顯示MQTT數據
-'''
+
 from machine import Pin,I2C,UART,ADC
 from ssd1306 import SSD1306_I2C
 import time
@@ -24,7 +24,7 @@ while True:
     time.sleep(1)
 
     oled.fill(0)
-    oled.show()'''
+    oled.show()
 
 '''
 While True:
