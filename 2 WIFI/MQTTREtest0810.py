@@ -76,20 +76,13 @@ while 1 :
     
     global resp
     if resp!= b'':
-        a=str(resp).replace('\\r\\n','')
-        a=a.replace('b','')
-        a=a.replace("'","")
+        a=str(resp).replace('\\r\\n','').replace('b','').replace("'","")
         c.append(a.split(','))
         print(c)
-        #f=zip c
-       # if eval(f[0])==0.7:
-          #  break
-       # else:
-          #  continue
+       
         if len(c) ==1:
-            del c[0:3]
-        else:
-            continue
+            del c[0]
+        
     
     utime.sleep(1)
     
