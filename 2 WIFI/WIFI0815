@@ -76,9 +76,9 @@ class ESP01_MQTT:
         y3 = str(value3)
         
         
-        self.send_cmd_wait_resp(f'PB1+ {y1} hpa,')
-        self.send_cmd_wait_resp(f'PB2+ {y2} L/H,')
-        self.send_cmd_wait_resp(f'PB3+ {y3} %')
+        self.send_cmd_wait_resp(f'PB1+ {y1} ')
+        self.send_cmd_wait_resp(f'PB2+ {y2} ')
+        self.send_cmd_wait_resp(f'PB3+ {y3} ')
         self.count = value1  # You can choose which value to use for count or omit this line
         #global count
        
