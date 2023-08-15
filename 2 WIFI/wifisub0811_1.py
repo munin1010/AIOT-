@@ -60,7 +60,7 @@ class MQTTController:
     def process_response(self):
         if self.resp != b'':
             a = str(self.resp).replace('\\r\\n', '').replace('b', '').replace("'", "")
-            c = a.split(',')
+            c = a.split(' ')
             return c
 
     def run(self):
