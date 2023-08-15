@@ -2,7 +2,7 @@ from machine import Pin
 import machine
 import utime
 
-count=0
+
 class ESP01_MQTT:
     def __init__(self, tx_pin, rx_pin):
         self.uart = machine.UART(1, tx=Pin(tx_pin), rx=Pin(rx_pin), baudrate=115200)
@@ -80,29 +80,20 @@ class ESP01_MQTT:
         self.send_cmd_wait_resp(f'PB2+ {y2} L/H,')
         self.send_cmd_wait_resp(f'PB3+ {y3} %')
         self.count = value1  # You can choose which value to use for count or omit this line
-        global count
-        if count==0:
-            self.send_cmd_wait_resp(f'TP1+ {y1}' )
-            utime.sleep(0.5)
-            self.send_cmd_wait_resp(f'TP2+ {y2}' )
-            utime.sleep(0.5)
-            self.send_cmd_wait_resp(f'TP3+ {y3}' )
-            utime.sleep(0.5)
-            self.send_cmd_wait_resp('TX_EN')
-            utime.sleep(0.5)
-        elif count==3:
-            self.send_cmd_wait_resp(f'TP1+ {y1}' )
-            utime.sleep(0.5)
-            self.send_cmd_wait_resp(f'TP2+ {y2}' )
-            utime.sleep(0.5)
-            self.send_cmd_wait_resp(f'TP3+ {y3}' )
-            utime.sleep(0.5)
-            self.send_cmd_wait_resp('TX_EN')
-            utime.sleep(0.5)
-            count=1
-        count+=1
+        #global count
+       
+            
+        self.send_cmd_wait_resp(f'TP1+ {y1}' )
+        utime.sleep(0.5)
+        self.send_cmd_wait_resp(f'TP2+ {y2}' )
+        utime.sleep(0.5)
+        self.send_cmd_wait_resp(f'TP3+ {y3}' )
+        utime.sleep(0.5)
+        self.send_cmd_wait_resp('TX_EN')
+        utime.sleep(0.5)
+        
         utime.sleep(5)
-        print(count)
+        
 # Usage example:
 if __name__ == '__main__':
     esp01_mqtt = ESP01_MQTT(tx_pin=8, rx_pin=9)
@@ -128,3 +119,4 @@ if __name__ == '__main__':
         value3_to_send += value2_to_send
         esp01_mqtt.publish_data(value1_to_send, value2_to_send, value3_to_send)
         utime.sleep(1)
+
