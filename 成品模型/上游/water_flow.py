@@ -19,34 +19,23 @@ def init_flow_sensor(y):
 def read_flow_rate():
     global lastcallTime
     global flow_frequency
-    if ((time.ticks_ms()-lastcallTime) > 1000):  #if time interval is more a than 1 second
-            flow_rate = (flow_frequency * 60 / 7.5)  #flowrate in L/hour= (Pulse frequency x 60 min) / 7.5 
-            flow_frequency = 0                       # Reset Counter
+    if ((time.ticks_ms()-lastcallTime) > 1000):           #if time interval is more a than 1 second
+            flow_rate = (flow_frequency * 60 / 7.5)       #flowrate in L/hour= (Pulse frequency x 60 min) / 7.5 
+            flow_frequency = 0                            # Reset Counter
             lastcallTime=time.ticks_ms()
             return flow_rate
-                     
-    
     return None
             
 def main():
-    init_flow_sensor(y)
+    init_flow_sensor(16)
     flow_rate=0
   
     while True:
-        
         new_flow_rate=read_flow_rate()
         if new_flow_rate:
             flow_rate=new_flow_rate
-            
-        print("Flow Rate={} Litres/Hour".format(flow_rate))   #print(flow_rate)
-            
+        print("Flow Rate={} Litres/Hour".format(flow_rate))   
         time.sleep(0.5)
-
- 
-    
-            
-        
-        
 
 
 if __name__ == '__main__':

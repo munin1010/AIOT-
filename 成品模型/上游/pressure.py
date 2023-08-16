@@ -8,10 +8,8 @@ def init_pressure_sensor(x):
     adc0 = ADC(x)
 
 def read_pressure():
-    
     conversion_factor=50/65535 
     reading=adc0.read_u16()*conversion_factor
-
     return round(reading,1)
 
 
@@ -19,7 +17,6 @@ def read_pressure():
 def main():
     init_pressure_sensor(1)
     while 1:
-        
         pressure=read_pressure()
         print("pressure = {} hpa".format(pressure)) 
         time.sleep(0.5)
