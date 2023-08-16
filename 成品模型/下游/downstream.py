@@ -69,7 +69,6 @@ def main():
             disp = str(x3) + '%'
             oled.text(disp,10,52)
             oled.show()
-
             sleep(10)
 
             oled.fill(0)
