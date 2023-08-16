@@ -53,7 +53,7 @@ def oled_thread():
 def main():
     while True:
         a=mqtt_controller.run()
-        if 2<len(a)<4:
+        if len(a)>2:
             x1=float(a[0])
             x2=float(a[1])
             x3=float(a[2])
@@ -82,11 +82,10 @@ def main():
             elif x2>750.0 and x3>70.0 :
                 _thread.start_new_thread(buzzer,())
                 oled_thread()
-                
+        else:
+            continue
 if __name__ == "__main__":
     main()
-
-        
 
         
 
