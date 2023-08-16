@@ -50,11 +50,11 @@ def loop():
                                 value2_to_send,
                                 value3_to_send)
         time.sleep(1)
-        if value1_to_send >0 and value3_to_send>0:
+        if value1_to_send >11 and value3_to_send>750:
             x=20
             x1=22
             esp01_mqtt.warm_data(x,x1)
-        elif value1_to_send>0 and value3_to_send>0:
+        elif value1_to_send>750 and value3_to_send>70:
             x=20
             x1=22
             esp01_mqtt.warm_data(x,x1)
