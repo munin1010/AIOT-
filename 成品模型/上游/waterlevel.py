@@ -2,8 +2,8 @@ from machine import ADC, Pin
 import utime
 
 adc0=None
-min_waterheight=19200
-max_waterheight=49300
+min_waterheight=11500
+max_waterheight=21500
 def init_water_level_sensor(z):
     global adc0
     adc0 = ADC(z)
