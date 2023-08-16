@@ -35,7 +35,7 @@ def oled_thread():
             time.sleep(0.5)
 def buzzer():
         for t in range(5):
-            pwm = PWM(Pin(7,Pin.OUT))
+            pwm = PWM(Pin(28,Pin.OUT))
             pwm.duty_u16(32000)
             for freq in range(500,1000,20):
                 #print(freq)
@@ -71,11 +71,11 @@ while True:
     oled.fill(0)
     oled.show()
     
-    if x1>0.0 and x2==0.0:
+    if x1>10.0 and x2==1000:
         _thread.start_new_thread(oled_thread,())
         buzzer()
         
-    elif x2>0 and x3>0:
+    elif x2>1000 and x3>150:
         _thread.start_new_thread(oled_thread,())
         buzzer()
         
