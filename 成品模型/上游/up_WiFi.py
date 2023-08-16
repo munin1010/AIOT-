@@ -73,10 +73,13 @@ class ESP01_MQTT:
 
         print('Start')
         utime.sleep(1)
-    def warm_data(self, value,value2):
+    def warn_data(self, value):
         self.wait_resp()
         x=str(value)
         self.send_cmd_wait_resp(f'PB4+ {x} ')
+
+    def close_warn(self,value2):
+        self.wait_resp()
         x1=str(value2)
         self.send_cmd_wait_resp(f'PB5+ {x1} ')
         
@@ -86,9 +89,9 @@ class ESP01_MQTT:
         y2 = str(value2)
         y3 = str(value3)
         
-        self.send_cmd_wait_resp(f'PB1+ {y1} ')
-        self.send_cmd_wait_resp(f'PB2+ {y2} ')
-        self.send_cmd_wait_resp(f'PB3+ {y3} ')
+        self.send_cmd_wait_resp(f'PB1+{y1} ')
+        self.send_cmd_wait_resp(f'PB2+{y2} ')
+        self.send_cmd_wait_resp(f'PB3+{y3} ')
      
         self.send_cmd_wait_resp(f'TP1+ {y1}' )
         utime.sleep(0.5)
@@ -129,12 +132,10 @@ def main():
         utime.sleep(1)
         if value1_to_send >0 and value3_to_send>0:
             x=20
-            X1=22
-            esp01_mqtt.warm_data(x,X1)
+            esp01_mqtt.warn_data(x)
         elif value1_to_send>0 and value3_to_send>0:
-            x=20
             X1=22
-            esp01_mqtt.warm_data(x,X1)
+            esp01_mqtt.close_warn(X1)
  
  
 # Usage example:
