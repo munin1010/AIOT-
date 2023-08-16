@@ -50,42 +50,43 @@ def oled_thread():
             oled.invert(False)
             sleep(0.5)
 
-
 def main():
     while True:
         a=mqtt_controller.run()
-        x1=float(a[0])
-        x2=float(a[1])
-        x3=float(a[2])
-
-        disp = str(x1) + 'hpa'
-        oled.text(disp,10,10)
-        oled.show()
-
-        disp = str(x2) + 'L/H'
-        oled.text(disp,10,31)
-        oled.show()
-
-        disp = str(x3) + '%'
-        oled.text(disp,10,52)
-        oled.show()
-
-        sleep(10)
-
-        oled.fill(0)
-        oled.show()
-        
-        if x1>11 and x2==750:
-            _thread.start_new_thread(oled_thread,())
-            buzzer()
+        if 3<len(a)<4:
+            x1=float(a[0])
+            x2=float(a[1])
+            x3=float(a[2])
             
-        elif x2>750 and x3>70:
-            _thread.start_new_thread(oled_thread,())
-            buzzer()
-    
+            disp = str(x1) + 'hpa'
+            oled.text(disp,10,10)
+            oled.show()
 
+            disp = str(x2) + 'L/H'
+            oled.text(disp,10,31)
+            oled.show()
+
+            disp = str(x3) + '%'
+            oled.text(disp,10,52)
+            oled.show()
+
+            sleep(10)
+
+            oled.fill(0)
+            oled.show()
+
+            if x1>11.0 and x2>750.0:
+                _thread.start_new_thread(buzzer,())
+                oled_thread()
+               
+            elif x2>750.0 and x3>70.0 :
+                _thread.start_new_thread(buzzer,())
+                oled_thread()
+                
 if __name__ == "__main__":
     main()
+
+        
 
         
 
